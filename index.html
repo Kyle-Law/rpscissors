@@ -1,0 +1,58 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            //Step 3: begin with a function called computerPlay that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. We’ll use this function in the game to make the computer’s play.
+            let moveList = ['Rock','Paper','Scissors'];
+            // let move = moveList[Math.floor(Math.random()*moveList.length)];
+            // let computerMove = () => move;
+            //Step 4: Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+            let capitalizeInput = (input) => input.toLowerCase().charAt(0).toUpperCase() + input.toLowerCase().substring(1);
+
+            
+            function playRound(playerSelection, computerSelection) {
+                if (playerSelection == computerSelection){
+                    return 0
+                }
+                //When player loses
+                if ((playerSelection == 'Rock'&& computerSelection == 'Paper')|| (playerSelection=='Paper' && computerSelection == 'Scissors')|| (playerSelection == 'Scissors' && computerSelection == 'Rock')){
+                    return -1
+                }else{
+                    return 1
+                }
+            }
+            //Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
+            function game(){
+                let playerScore = 0;
+                let computerScore = 0;
+                for (let i=0;i<5;i++) {
+                    let computerPlay = moveList[Math.floor(Math.random()*moveList.length)]
+                    let playerPlay = prompt('Rock, Paper or Scissors?');
+                    playerPlay = capitalizeInput(playerPlay);
+                    if (playRound(playerPlay,computerPlay)===1){
+                        playerScore++
+                        console.log(`Player:${playerPlay} Computer:${computerPlay}, Player wins!`)
+                    } else if(playRound(playerPlay,computerPlay)===-1){
+                        computerScore++
+                        console.log(`Player:${playerPlay} Computer:${computerPlay}, Computer wins!`)
+                    } else{
+                        console.log(`Player:${playerPlay} Computer:${computerPlay}, It's draw!`)
+                    }
+                    
+                }
+                if (playerScore>computerScore){
+                    console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}, player wins!`)
+                }else if (playerScore == computerScore){
+                    console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}, It's a draw`)
+                } else {
+                    console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}, player loses!`)
+
+                }
+                
+
+            }
+            game();
+        </script>
+    </body>
+</html>
