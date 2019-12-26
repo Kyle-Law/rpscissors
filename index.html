@@ -24,7 +24,6 @@
             }
             //Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
             function game(){
-                alert('Please open your Console :)')
                 let playerScore = 0;
                 let computerScore = 0;
                 for (let i=0;i<5;i++) {
@@ -43,17 +42,20 @@
                     
                 }
                 if (playerScore>computerScore){
-                    alert(`Player Score: ${playerScore}, Computer Score: ${computerScore}, player wins!`)
+                    alert(`Player Score: ${playerScore}, Computer Score: ${computerScore}, player wins!`);
+                    console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}, player wins!`);
                 }else if (playerScore == computerScore){
-                    alert(`Player Score: ${playerScore}, Computer Score: ${computerScore}, It's a draw`)
+                    alert(`Player Score: ${playerScore}, Computer Score: ${computerScore}, It's a draw`);
+                    console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}, It's a draw`);
                 } else {
-                    alert(`Player Score: ${playerScore}, Computer Score: ${computerScore}, player loses!`)
-
+                    alert(`Player Score: ${playerScore}, Computer Score: ${computerScore}, player loses!`);
+                    console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}, player loses!`);
                 }
                 
 
             }
-            game();
         </script>
+        <h1>Rock,Paper, & Scissors</h1>
+        <p>To start, please open and type 'game()' in your Console :)</p>
     </body>
 </html>
